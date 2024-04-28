@@ -1,6 +1,7 @@
 /* Здесь вы напишете основную часть стилей страницы.
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, 
+чтобы в HTML некоторые классы были названы особым образом:
 ✦ theme-dark — класс тёмной темы
 ✦ theme-light — класс светлой темы
 ✦ like-icon — для svg-иконки анимированного сердца
@@ -15,6 +16,347 @@
 */
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-color);
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font);
+  font-weight: 400; 
+  font-variation-settings: 'wght' var(--card-text-weight);
+  background-image: linear-gradient(to bottom, var(--header-background-color) 20%, transparent 80%), var(--background-image);
+  background-size: cover; 
+  background-attachment: fixed; 
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--header-background-color);
+  width: clamp(376px, 700px, 700px);
+  border: 2px solid var(--border-color);
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+  margin: 100px 0;
+}
+
+.header__theme-menu {
+  margin-bottom: 25px;
+  width: 114px;
+}
+
+.theme-menu__item {
+  display: flex;
+  justify-content: start;
+  position: relative;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  text-align: right;
+  margin-left: 10px;
+}
+
+.header__main-heading {
+  margin-top: 136px;
+  font-size: 65px;
+  font-weight: 400;
+  line-height: 65px;
+}
+
+.header__subcategory-of-main-heading {
+  margin: 20px 0 25px;
+  font-size: 23px;
+  line-height: 23px;
+}
+
+/* hover */
+
+.theme-menu__button:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+/* block of cards/sections */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 696px;
+  background-color: var(--section-background-color);
+  border: 2px solid var(--border-color);
+  position: relative;
+}
+
+.section__heading {
+  font-family: var(--main-font);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 31px;
+  padding-left: 10px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.section__image {
+  width: 693px;
+  height: 696px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.section__paragraph-block {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  padding: 25px;
+  border-top: 2px solid var(--border-color);
+}
+
+.section__like-block {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+}
+
+.like-icon {
+  width: 39px;
+  height: 36px;
+  position: absolute;
+  top: 0;
+  left: -2px;
+  margin-right: 2px;
+}
+
+.like-icon-button {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  padding: 0;
+}
+
+.like-icon-button:focus-visible {
+  border: 2px solid var(--border-color);
+}
+
+.section__like-button {
+  font-family: var(--accent-font);
+  width: 130px;
+  height: 38px;
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+}
+
+/* button dialog / footer */
+
+.footer {
+  margin: 52px 0 105px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--footer-background-color);
+  border: 2px solid var(--border-color);
+  width: 335px;
+  height: 51px;
+  padding-left: 19px;
+}
+
+.footer__button-text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 12.6px;
+}
+
+/* dialog */
+
+.dialog {
+  font-family: var(--accent-font);
+  width: 357px;
+  height: 193px;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 30px;
+  gap: 30px;
+  background-color: var(--footer-background-color);
+  color: var(--text-color);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dialog__text-block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__button {
+  width: 293px;
+  height: 38px;
+  text-transform: uppercase;
+  padding-top: 5px;
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+}
+
+/* label */
+
+.section__label {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 14px;
+  color: var(--label-color);
+  text-shadow:
+  -1px 0 var(--label-stroke-color), 
+  0 1px var(--label-stroke-color), 
+  1px 0 var(--label-stroke-color), 
+  0 -1px var(--label-stroke-color);
+  position: absolute;
+  top: 60px;
+  right: 25px;
+}
+
+/*  стрелки */
+
+.theme-menu__button:active {
+  color: gray;
+}
+
+.theme-menu__button:active::before {
+  content: '▶';
+  position: absolute;
+  top: 8.5px;
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+  animation: moveArrow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes moveArrow {
+  0% {
+      left: 0;
+  }
+  100% {
+      left: 4px;
+  }
+}
+
+/* filters */
+
+.image_car {
+  filter: brightness(50%);
+}
+
+/* hover button transition */
+/*
+.footer__button-text {
+  z-index: 10;
+} */
+
+span {
+  position: relative;
+  z-index: 10; 
+} 
+
+.button-decoration {
+  background-color: var(--section-background-color);
+  color: var(--text-color);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s, background-size 0.5s;
+  z-index: 5;
+}
+
+.button-decoration::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--border-color);
+  transition: left 0.5s ease-in-out;
+  z-index: 5;
+}
+
+.button-decoration:hover::before {
+  left: 0;
+  z-index: 5;
+}
+
+.button-decoration:hover {
+  color: var(--text-color-opposite);
+  z-index: 5;
+  fill: "black";
+}
+
+/* focus */
+
+.footer__button:focus, .section__like-button:focus {
+  outline: none;
+}
+
+.footer__button:focus-visible, .section__like-button:focus-visible {
+  box-shadow: 2px 2px 0 var(--border-color);
+}
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 3px;
+  margin-top: -1px;
+  background-color: gray;
+  transition: width 300ms, background-color 0.5s;
+}
+
+.theme-menu__button:focus-visible {
+  outline: none;
+  color: gray;
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+  background-color: gray;
+}
+
+.like-icon-button:focus {
+  outline: none;
+}
+
+@supports((text-stroke: 1px var(--label-stroke-color)) or (-webkit-text-stroke: 1px var(--label-stroke-color))) {
+  .section__label {
+      -webkit-text-stroke: 1px var(--label-stroke-color);
+      text-stroke: 1px var(--label-stroke-color);
+      text-shadow: none;
+  }
+} 

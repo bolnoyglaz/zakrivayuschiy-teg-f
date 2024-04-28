@@ -12,3 +12,103 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/* При наведении */
+.like-icon:hover .core {
+    animation: fillCore 0.3s forwards; /* Плавное изменение цвета заливки */
+}
+  
+@keyframes fillCore {
+    from {
+        fill: none; /* Начальный цвет заливки */
+    }
+    to {
+        fill: black; /* Конечный цвет заливки */
+    }
+}
+  
+.like-icon:hover .main-body {
+    animation: fillMainBody 0.3s forwards 0.05s; /* Плавное изменение цвета заливки с задержкой */
+}
+  
+@keyframes fillMainBody {
+    from {
+        fill: none; /* Начальный цвет заливки */
+    }
+    to {
+        fill: black; /* Конечный цвет заливки */
+    }
+}
+
+/* При уходе */
+
+.like-icon:not(:hover) .main-body {
+    animation: unfillMainBody 0.3s forwards; /* Плавное возвращение в исходное состояние с задержкой */
+}
+  
+@keyframes unfillMainBody {
+    from {
+        fill: black; /* Текущий цвет заливки */
+    }
+    to {
+        fill: none; /* Исходный цвет заливки */
+    }
+}
+
+.like-icon:not(:hover) .core {
+    fill: none;  /* Плавное возвращение в исходное состояние */
+}
+
+  /* При нажатии */
+.like-icon:active .core,
+.like-icon:active .main-body {
+    animation: fillRed 0.3s forwards; /* Плавное изменение цвета заливки при нажатии */
+}
+  
+@keyframes fillRed {
+    from {
+        fill: black;
+    }
+    to {
+        fill: red; /* Закрашиваем сердцевину и основное тело красным цветом */
+    }
+}
+  
+  /* При клике */
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body {
+    fill: red; /* Закрашиваем сердцевину и основное тело */
+    transition: fill 0.3s 0.03s linear; /* Плавное изменение цвета заливки с задержкой */
+}
+  
+.like-icon.is-liked .contour {
+    fill: red; /* Закрашиваем контур */
+    transition: fill 0.3s 0.06s linear; /* Плавное изменение цвета заливки контура с задержкой */
+}
+  
+  /* Масштабирование сердца */
+@keyframes scaleHeart {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+  
+  /* Искры */
+@keyframes sparksAnimation {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+  
+  /* Применение анимаций */
+.like-icon.is-liked .heart {
+    animation: scaleHeart 0.3s ease-in 0.1s forwards, sparksAnimation 0.3s ease-in 0.3s forwards;
+}
+  
+  /* Возвращение контура */
+.like-icon .contour {
+    transition: fill 0.1s linear; /* Плавное изменение цвета заливки контура */
+}
+  
+  
+
