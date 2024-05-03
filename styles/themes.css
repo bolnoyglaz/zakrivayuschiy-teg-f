@@ -7,6 +7,7 @@
 
 :root.theme-dark {
     --text-color: rgba(0, 204, 20, 1);
+    --text-color-opacity: rgba(0, 204, 20, 0.6);
     --text-color-opposite: rgba(0, 0, 0, 1);
     --border-color: rgba(0, 204, 20, 1);
     --background-image: url(../images/background-dark.png);
@@ -21,6 +22,7 @@
 
 :root.theme-light {
     --text-color: rgba(0, 0, 0, 1);
+    --text-color-opacity: rgba(0, 0, 0, 0.6);
     --text-color-opposite: rgba(255, 255, 255, 1);
     --border-color: rgba(0, 0, 0, 1);
     --background-image: url(../images/background-light.png);
@@ -36,6 +38,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         --text-color: rgba(0, 204, 20, 1);
+        --text-color-opacity: rgba(0, 204, 20, 0.6);
         --border-color: rgba(0, 204, 20, 1);
         --background-image: url(../images/background-dark.png);
         --header-background-color: black;

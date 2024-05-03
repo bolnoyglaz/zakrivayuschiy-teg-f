@@ -14,6 +14,10 @@
 */
 
 /* При наведении */
+.like-icon:hover {
+    cursor: pointer;
+}
+
 .like-icon:hover .core {
     animation: fillCore 0.3s forwards; /* Плавное изменение цвета заливки */
 }
@@ -60,9 +64,12 @@
 }
 
   /* При нажатии */
-.like-icon:active .core,
-.like-icon:active .main-body {
+.like-icon:active .core {
     animation: fillRed 0.3s forwards; /* Плавное изменение цвета заливки при нажатии */
+}
+
+.like-icon:active .main-body {
+    animation: fillRedBody 0.3s forwards;
 }
   
 @keyframes fillRed {
@@ -73,17 +80,17 @@
         fill: red; /* Закрашиваем сердцевину и основное тело красным цветом */
     }
 }
-  
-  /* При клике */
-.like-icon.is-liked .core,
-.like-icon.is-liked .main-body {
-    fill: red; /* Закрашиваем сердцевину и основное тело */
-    transition: fill 0.3s 0.03s linear; /* Плавное изменение цвета заливки с задержкой */
-}
-  
-.like-icon.is-liked .contour {
-    fill: red; /* Закрашиваем контур */
-    transition: fill 0.3s 0.06s linear; /* Плавное изменение цвета заливки контура с задержкой */
+
+@keyframes fillRedBody {
+    from {
+        fill: black;
+    }
+    50% {
+        fill: black;
+    }
+    to {
+        fill: red; /* Закрашиваем сердцевину и основное тело красным цветом */
+    }
 }
   
   /* Масштабирование сердца */
@@ -95,20 +102,36 @@
   
   /* Искры */
 @keyframes sparksAnimation {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+    from {
+        fill: none;
+    }
+    50% {
+        fill: red;
+    }
+    to {
+        fill: none;
+    }
 }
   
   /* Применение анимаций */
 .like-icon.is-liked .heart {
-    animation: scaleHeart 0.3s ease-in 0.1s forwards, sparksAnimation 0.3s ease-in 0.3s forwards;
+    animation: scaleHeart 0.3s ease-in 0.1s forwards;
 }
-  
-  /* Возвращение контура */
-.like-icon .contour {
-    transition: fill 0.1s linear; /* Плавное изменение цвета заливки контура */
-}
-  
-  
 
+.like-icon.is-liked .sparks {
+    animation: sparksAnimation 0.3s ease-in 0.3s forwards;
+}
+
+/* При клике */
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body,
+.like-icon.is-liked .contour {
+    fill: red; 
+    animation: islikeAnimation 0.3s ease-in 0.3s forwards;
+}
+
+@keyframes islikeAnimation {
+    to {
+        fill: red;
+    }
+}
