@@ -135,3 +135,12 @@
         fill: red;
     }
 }
+
+@keyframes moveArrow {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 4px;
+    }
+  }

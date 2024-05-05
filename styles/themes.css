@@ -17,7 +17,8 @@
     --like-color: rgba(0, 204, 20, 1);
     --label-color: rgba(0, 204, 20, 0.5);
     --label-stroke-color: rgba(0, 0, 0, 0.5);
-    --gradient-color: rgba(0, 204, 20, 0.9);
+    --gradient-background: linear-gradient(180deg, #007F0C 0%, rgba(0, 204, 20, 0.1) 100%), url(../images/background-dark.png);
+    --like-button-text-color: rgba(0, 204, 20, 1);
 }
 
 :root.theme-light {
@@ -32,13 +33,15 @@
     --like-color: rgba(0, 0, 0, 1);
     --label-color: rgba(0, 0, 0, 0.5);
     --label-stroke-color: rgba(255, 255, 255, 0.5);
-    --gradient-color: rgba(0, 0, 0, 0.9);
+    --like-button-text-color: rgba(255, 255, 255, 1);
+    --gradient-background: linear-gradient(180deg, rgba(0, 127, 12, 0.1) 0%, rgba(0, 67, 6, 0.1) 100%), url(../images/background-light.png);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --text-color: rgba(0, 204, 20, 1);
         --text-color-opacity: rgba(0, 204, 20, 0.6);
+        --text-color-opposite: rgba(0, 0, 0, 1);
         --border-color: rgba(0, 204, 20, 1);
         --background-image: url(../images/background-dark.png);
         --header-background-color: black;
@@ -47,6 +50,7 @@
         --like-color: rgba(0, 204, 20, 1);
         --label-color: rgba(0, 204, 20, 0.5);
         --label-stroke-color: rgba(0, 0, 0, 0.5);
-        --gradient-color: rgba(0, 204, 20, 0.9);
+        --like-button-text-color: rgba(0, 204, 20, 1);
+        --gradient-background: linear-gradient(180deg, #007F0C 0%, rgba(0, 204, 20, 0.1) 100%), url(../images/background-dark.png);
     }
 } 
